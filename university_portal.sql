@@ -82,3 +82,54 @@ EXPLAIN
 SELECT *
 FROM Students
 WHERE last_name = 'Okafor';
+SELECT
+    Students.first_name,
+    Students.last_name,
+    Courses.course_code
+FROM Students
+JOIN Registrations
+    ON Students.student_id = Registrations.student_id
+JOIN Courses
+    ON Registrations.course_id = Courses.course_id;
+START TRANSACTION;
+UPDATE Results
+SET score = 70
+WHERE registration_id = 1;
+ROLLBACK;
+SELECT
+    Students.first_name,
+    Students.last_name,
+    Results.score,
+    Results.grade
+FROM Students
+JOIN Registrations
+    ON Students.student_id = Registrations.student_id
+JOIN Results
+    ON Registrations.registration_id = Results.registration_id
+WHERE Students.student_id = 1;
+START TRANSACTION;
+UPDATE Results
+SET score = 93
+WHERE registration_id = 2;
+COMMIT;
+SELECT
+    Students.first_name,
+    Students.last_name,
+    Results.score,
+    Results.grade
+FROM Students
+JOIN Registrations
+    ON Students.student_id = Registrations.student_id
+JOIN Results
+    ON Registrations.registration_id = Results.registration_id
+WHERE Students.student_id = 2;
+SELECT @@transaction_isolation;
+SELECT
+    TABLE_NAME,
+    ENGINE
+FROM information_schema.TABLES
+WHERE TABLE_SCHEMA = 'university_portal';
+SELECT
+    CONNECTION_ID(),
+    @@autocommit,
+    @@transaction_isolation;
