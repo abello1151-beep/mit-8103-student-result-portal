@@ -85,7 +85,7 @@ WHERE Students.student_id = 1;
 -- snapshot behaviour was not conclusively verified.
 -- Final score restored and verified: 85
 ```
-New successful REPEATABLE READ concurrency experiment
+    
 ```sql
 -- Successful REPEATABLE READ concurrency experiment
 -- Session 1 connection ID: 9
