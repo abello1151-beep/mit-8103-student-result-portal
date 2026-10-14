@@ -85,4 +85,39 @@ WHERE Students.student_id = 1;
 -- snapshot behaviour was not conclusively verified.
 -- Final score restored and verified: 85
 ```
-
+New successful REPEATABLE READ concurrency experiment
+```sql
+-- Successful REPEATABLE READ concurrency experiment
+-- Session 1 connection ID: 9
+-- Session 2 connection ID: 17
+-- Initial committed score for registration_id 1: 85
+--
+-- Session 1:
+-- Started a transaction and read score = 85.
+--
+-- Session 2:
+-- Started a transaction and updated score to 75.
+-- The update was not committed initially.
+--
+-- Session 1:
+-- Continued to read score = 85 while Session 2's update
+-- was uncommitted.
+--
+-- Session 2:
+-- Committed the update to score = 75.
+--
+-- Session 1:
+-- Continued to read score = 85 after Session 2 committed,
+-- while Session 1's original transaction remained active.
+--
+-- Session 1 committed its transaction.
+-- Session 2 then observed the committed score of 75.
+--
+-- Final cleanup:
+-- Restored score to 85 and committed the correction.
+-- Final score verified as 85.
+--
+-- Conclusion:
+-- The experiment demonstrated REPEATABLE READ snapshot
+-- behaviour across two separate MySQL connections.
+```
