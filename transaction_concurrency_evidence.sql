@@ -70,3 +70,19 @@ WHERE Students.student_id = 1;
 -- Note:
 -- A two-session concurrency exercise was attempted.
 -- The expected isolation behaviour was not conclusively verified.
+```sql
+-- Concurrency test results
+-- Session 1 connection ID: 9
+-- Session 2 connection ID: 17
+-- Initial score for registration_id 1: 85
+-- Session 2 updated the score to 75 without committing.
+-- Session 1 continued to see 85 while the update was uncommitted.
+-- Session 2 then committed the update.
+-- Session 1 later showed 75, but its transaction was no longer
+-- listed in information_schema.innodb_trx.
+-- Conclusion: The test demonstrated that Session 1 did not see
+-- Session 2's uncommitted update. The full repeatable-read
+-- snapshot behaviour was not conclusively verified.
+-- Final score restored and verified: 85
+```
+
