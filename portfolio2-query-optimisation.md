@@ -48,8 +48,9 @@ EXPLAIN SELECT * FROM Students
 WHERE last_name = 'Okafor';
 ```
 
-Observation: MySQL reported the access type as `ref`, which is consistent with a lookup using a non-unique index.
- 4. Join Query
+Observation: MySQL reported the access type as ref, which is consistent with a lookup using a non-unique index.
+
+4. Join Query
 I joined the Students, Registrations, and Courses tables to retrieve student and course information.
 
 ```sql
