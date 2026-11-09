@@ -29,7 +29,8 @@ The database contains four tables:
 The database uses primary keys, foreign keys, NOT NULL constraints, unique constraints, and a score check constraint to help maintain data accuracy and consistency.
 
 6. Normalisation
-The tables separate student details, course details, registrations, and results into different structures. This reduces unnecessary duplication and helps maintain data consistency. Unique constraints prevent duplicate student-course registrations and duplicate results for a registration.
+
+The database was organised to follow First Normal Form (1NF), Second Normal Form (2NF), and Third Normal Form (3NF). Each table stores information about a specific subject: students, courses, registrations, or results. Primary and foreign keys link the tables, while unique constraints prevent duplicate student-course registrations and duplicate results for a registration. This structure reduces unnecessary data duplication and helps maintain data consistency.
 
 7. Evidence
 The Entity-Relationship Diagram is available in `university_portal_erd.png`. The SQL table definitions are available in `university_portal.sql`.
