@@ -1,32 +1,31 @@
-# mit-8103-student-result-portal
-Advanced Database Systems portfolio - University Student Result Portal
-MIT 8103 – Advanced Database Systems Portfolio
+MIT 8103 – Advanced Database Systems
 
-Project Title
-University Student Result Portal
+Project: University Student Result Portal
 
 Project Overview
-This project is a university student result management database developed using MySQL. It is designed to store student information, course details, course registrations, and student results.
-
- Database Tables
-The database contains four tables:
-
-- Students: Stores student names and email addresses.
-- Courses: Stores course codes, names, and credit units.
-- Registrations: Connects students to the courses they register for.
-- Results: Stores student scores and grades.
+This project explores the design and practical implementation of a University Student Result Portal. The system manages student records, courses, registrations and examination results.
 
 Technologies Used
-- MySQL
-- MySQL Workbench
-- GitHub
+- MySQL – Relational database design and SQL operations.
+- MySQL Workbench – Database management and query testing.
+- Mongo Playground – NoSQL document query practice.
+- GitHub – Project documentation, SQL scripts and evidence storage.
 
-Portfolio Objectives
-1. Design and model a relational database.
-2. Practise SQL queries and query optimisation.
-3. Demonstrate database transactions and concurrency concepts.
-4. Explore NoSQL and advanced data models.
-5. Explore distributed and cloud database concepts.
+Portfolio Contents
 
-Project Status
-The relational database tables, sample data, table relationships, and initial query optimisation and transaction exercises have been completed. Further portfolio exercises and evidence will be added as the project progresses.
+1. Database Design and Modelling: Tables, relationships, keys, constraints and ER diagram.
+2. Query Processing and Optimisation: SQL queries, JOIN operations, EXPLAIN and indexing.
+3. Transactions and Concurrency: COMMIT, ROLLBACK and REPEATABLE READ testing.
+4. NoSQL and Advanced Data Models: MongoDB document examples and query exercises.
+5. Distributed and Cloud Database: Conceptual discussion of cloud databases, replication and sharding.
+
+Evidence
+This repository contains SQL scripts, database design files, portfolio notes and screenshots of practical exercises.
+
+Important Note
+MongoDB work was completed using an online playground. Portfolio 5 is a conceptual discussion; no actual cloud deployment, replication or sharding configuration was performed.
+
+Academic Information
+- Course: MIT 8103 – Advanced Database Systems
+- Academic Session: 2026/2027
+- Case Study: University Student Result Portal
