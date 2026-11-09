@@ -56,4 +56,16 @@ The tables used the InnoDB storage engine. InnoDB supports transactions and help
 6. Conclusion
 These experiments demonstrated how COMMIT saves changes and ROLLBACK cancels uncommitted changes. I also learned how to check the transaction isolation level and storage engine in MySQL.
 
-Limitation: These exercises demonstrated transaction control, but did not include a separate two-session concurrency or locking experiment.
+7. Two-Session Concurrency Experiment
+
+I performed a concurrency experiment using two MySQL Workbench sessions under the REPEATABLE READ isolation level.
+
+- Session 1 read the original score of 85.
+- Session 2 changed the score to 75 but initially did not commit.
+- Session 1 continued to see 85.
+- Session 2 committed the change to 75.
+- Session 1 still saw 85 until its transaction was committed.
+- After Session 1 committed, subsequent reads showed 75.
+- I restored the score to 85 and verified the final result.
+
+This experiment demonstrated snapshot behaviour under the REPEATABLE READ isolation level. The SQL evidence is included in the repository.
